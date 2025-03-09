@@ -20,7 +20,6 @@ export const SmartexViewEmail = () => {
         <Body className="bg-white my-auto mx-auto font-sans px-2">
           <Section>
             <div className="relative bg-[#0B1675] p-10 rounded-t-lg overflow-hidden">
-              {/* Smartex Logo */}
               <Img
                 src="/static/smartex-icon.png"
                 width="150"
@@ -29,7 +28,6 @@ export const SmartexViewEmail = () => {
                 className="inline-block mb-5"
               />
 
-              {/* Alien Character */}
               <div className="absolute right-10 top-10 z-2">
                 <Img
                   src="/static/smartex-sticker.png"
@@ -39,7 +37,6 @@ export const SmartexViewEmail = () => {
                 />
               </div>
 
-              {/* Wavy Bottom Curve */}
               <div className="absolute bottom-0 left-0 right-0 h-15 overflow-hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -56,10 +53,8 @@ export const SmartexViewEmail = () => {
               </div>
             </div>
 
-            {/* Content area with orange background for the wavy part */}
             <div className="bg-[#F5933B] h-10"></div>
 
-            {/* Rest of email content would go here */}
             <div className="bg-white p-6 rounded-b-lg border border-[#e5e7eb] border-t-0">
               <p className="text-lg text-[#333333]">
                 Your email content here...
