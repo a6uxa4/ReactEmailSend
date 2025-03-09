@@ -2,14 +2,12 @@ import {
   Body,
   Button,
   Container,
-  Column,
   Head,
   Heading,
   Html,
   Img,
   Link,
   Preview,
-  Row,
   Section,
   Text,
   Tailwind,
@@ -19,53 +17,76 @@ import * as React from "react";
 export const SmartexConfirmationEmail = () => {
   const previewText = "Подтверждение вашей учетной записи в SMARTEX";
 
-  // Base URL for the images - would be replaced with actual hosted image URLs
-  const baseUrl = "https://yourdomain.com";
 
   return (
     <Html>
-      <Head />
+      <Head>
+        <style>
+          {`
+            @media (max-width: 640px) {
+              .sm-logo {
+                width: 140px !important;
+                left: 24px !important;
+              }
+              .sm-sticker {
+                right: 0 !important
+              }
+              .sm-background {
+               display: none !important;
+              }
+              .sm-mobile-background {
+               display: block !important;
+              }
+            }
+          `}
+        </style>
+      </Head>
       <Preview>{previewText}</Preview>
       <Tailwind>
-        <Body className="bg-gray-100 font-sans">
+        <Body className="bg-white font-sans">
           <Container className="mx-auto max-w-xl">
             {/* Header */}
-            <Section className="rounded-t-lg bg-blue-900 p-8">
-              <Row>
-                <Column>
-                  <Img
-                    src={`/static/smartex-icon.png`}
-                    alt="SMARTEX"
-                    width="150"
-                    className="mb-4"
-                  />
-                </Column>
-                <Column align="right">
-                  <Img
-                    src={`/static/smartex-sticker.png`}
-                    alt="Mascot"
-                    width="80"
-                  />
-                </Column>
-              </Row>
+            <Section className="sm-container rounded-t-lg relative h-[250px]">
+              <Img
+                src={`/static/smartex-background-mobile.svg`}
+                alt="SMARTEX_BACKGROUND"
+                className="w-full h-full absolute top-0 sm-mobile-background hidden"
+              />
+              <Img
+                src={`/static/smartex-background.svg`}
+                alt="SMARTEX_BACKGROUND"
+                className="w-full h-full absolute top-0 sm-background block"
+              />
+              <Img
+                src={`/static/smartex-icon.png`}
+                alt="SMARTEX_ICON"
+                width="190"
+                className="absolute top-[70px] left-[50px] sm-logo"
+              />
+              <Img
+                src={`/static/smartex-sticker.png`}
+                alt="SMARTEX_STICKER"
+                width="175"
+                className="absolute top-0 right-[40px] sm-sticker"
+              />
             </Section>
 
-            {/* Orange wave divider */}
-            <Section className="bg-orange-400 h-12 rounded-b-3xl" />
-
             {/* Main content */}
-            <Section className="bg-white px-8 py-10 text-center">
-              <Heading className="text-2xl font-bold text-gray-800 mb-2">
-                Подтверждение вашей учетной записи в SMARTEX 🔥
+            <Section className="bg-white px-10 text-center">
+              <Heading className="text-lg font-medium">
+                Подтверждение вашей учетной записи в
+              </Heading>
+              <Heading className="text-lg font-semibold text-[#FF9500] mt-[-15px]">
+                SMARTEX 🔥
               </Heading>
 
-              <Text className="text-gray-600 mb-6">
+              <Text className="text-gray-600 mt-[10px] font-normal px-10">
                 Пожалуйста, подтвердите свой адрес электронной почты, чтобы
                 начать использовать
               </Text>
 
               <Button
-                className="bg-blue-900 text-white py-3 px-12 rounded-full font-bold"
+                className="bg-[#071E68] text-white py-3 px-12 rounded-full font-bold text-sm"
                 href="https://smartex.com/confirm-email"
               >
                 Подтвердить почту
@@ -79,57 +100,51 @@ export const SmartexConfirmationEmail = () => {
               <Text className="mt-8">
                 С наилучшими пожеланиями,
                 <br />
-                <span className="text-orange-500 font-bold">
-                  Команда SMARTEX
-                </span>
+                Команда{" "}
+                <span className="text-[#FF9500] font-normal">SMARTEX</span>
               </Text>
             </Section>
 
             {/* Footer */}
-            <Section className="bg-blue-900 px-8 py-8 text-center rounded-b-lg">
-              <Text className="text-white mb-4">Следуйте за нами</Text>
-
-              <Row className="mb-4">
-                <Column align="center">
-                  <Link href="https://facebook.com/smartex">
-                    <Img
-                      src={`${baseUrl}/facebook-icon.png`}
-                      alt="Facebook"
-                      width="24"
-                      className="mx-2"
-                    />
-                  </Link>
-                </Column>
-                <Column align="center">
-                  <Link href="https://instagram.com/smartex">
-                    <Img
-                      src={`${baseUrl}/instagram-icon.png`}
-                      alt="Instagram"
-                      width="24"
-                      className="mx-2"
-                    />
-                  </Link>
-                </Column>
-                <Column align="center">
-                  <Link href="https://t.me/smartex">
-                    <Img
-                      src={`${baseUrl}/telegram-icon.png`}
-                      alt="Telegram"
-                      width="24"
-                      className="mx-2"
-                    />
-                  </Link>
-                </Column>
-              </Row>
-
-              <Link
-                href="https://smartex.com/unsubscribe"
-                className="text-white text-xs underline"
-              >
-                Отписаться
-              </Link>
-
-              <Text className="text-gray-400 text-xs mt-4">
+            <Section className="bg-[#071E68] px-8 py-2 text-center rounded-b-lg">
+              <Text className="text-white font-semibold mb-4">
+                Следуйте за нами
+              </Text>
+              <div className="flex flex-row gap-2 items-center justify-center">
+                <Link href="https://facebook.com/smartex">
+                  <Img
+                    src={`/static/facebook-icon.svg`}
+                    alt="Facebook"
+                    width="24"
+                    className="mx-2"
+                  />
+                </Link>
+                <Link href="https://instagram.com/smartex">
+                  <Img
+                    src={`/static/instagram-icon.svg`}
+                    alt="Instagram"
+                    width="24"
+                    className="mx-2"
+                  />
+                </Link>
+                <Link href="https://t.me/smartex">
+                  <Img
+                    src={`/static/telegram-icon.svg`}
+                    alt="Telegram"
+                    width="24"
+                    className="mx-2"
+                  />
+                </Link>
+              </div>
+              <div className="mt-[30px]">
+                <Link
+                  href="https://smartex.com/unsubscribe"
+                  className="text-white text-xs underline"
+                >
+                  Отписаться
+                </Link>
+              </div>
+              <Text className="text-gray-400 text-xs mt-[30px]">
                 Copyright © 2025 Smartex
               </Text>
             </Section>
